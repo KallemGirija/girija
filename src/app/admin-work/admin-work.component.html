@@ -1,0 +1,33 @@
+<table  style="background-color:rgb(247, 225, 225);">
+    
+    <tr>
+        <td> Enter  Restaurant Name </td>
+        <td> <input type="text" #restaurantName/> </td>
+    </tr>
+    
+    <tr>
+        <td> Enter   Item Count </td>
+        <td> <input type="text" #itemCount/> </td>
+    </tr>
+
+    <tr>
+        <td> Enter Gross Bill Amount </td>
+        <td> <input type="text" #grossBillAmount/> </td>
+    </tr>
+    
+    <tr>
+        <td> Enter Gst  Amount </td>
+        <td> <input type="text" #gstAmount/> </td>
+    </tr>
+    
+    
+    
+    <tr>
+        <td> <input type="reset" value="Clear All"></td>
+        <td> <input type="button" (click)="readBills(itemCount.value,grossBillAmount.value,gstAmount.value,restaurantName.value)"
+            value="Add Bill" /> </td>
+    </tr>
+    
+
+</table>
+<br/>

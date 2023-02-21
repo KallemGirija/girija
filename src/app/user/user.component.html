@@ -1,3 +1,15 @@
-<a href="#">view weather forecast</a>
-<br>
-<a href="#">view news</a>
+<div *ngFor="let b of allBills" style="background-color:rgb(244, 166, 138);">
+    <table>
+        <tr>
+            <td>
+                <h2>{{b.grossBillAmount}} </h2>
+                <hr />
+                <p> {{b.gstAmount}} </p>
+                <br>
+                <h4>{{b.restaurantName}}</h4>
+                
+            </td>
+            </tr>
+    </table>
+</div>
+        
