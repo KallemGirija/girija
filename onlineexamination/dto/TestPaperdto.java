@@ -1,0 +1,15 @@
+package com.cg.onlineexamination.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class TestPaperdto {
+	private int TestPaperCode;
+	private String difficultyLevel;
+	private String description;
+
+}
