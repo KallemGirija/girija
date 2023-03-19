@@ -23,10 +23,10 @@ public class Student {
 	private String lastName;
 	private String gender;
 	private String emailId;
-	private int mobileNo;
+	private long mobileNo;
 	
 	public Student(String userName, int password, String firstName, String lastName, String gender,
-			String emailId, int mobileNo) {
+			String emailId, long mobileNo) {
 		super();
 		
 		this.userName = userName;

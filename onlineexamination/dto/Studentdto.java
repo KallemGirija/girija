@@ -17,6 +17,9 @@ public class Studentdto {
 	private String lastName;
 	private String gender;
 	private String emailId;
-	private int mobileNo;
+	private long mobileNo;
+	
+	
+	
 
 }

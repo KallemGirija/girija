@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Examdto {
 	
-	private int examRollNo;
+	private int examId;
 	private int dateOfExam;
-	private String status;
 	private int maximumScore;
 	private int actualScore;
-	private float examDuration;
 	private String difficultyLevel;
+	private String status;
 
 }

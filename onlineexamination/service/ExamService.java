@@ -11,6 +11,7 @@ public interface ExamService  {
 	
 	
 	public Exam addExam(Exam exam)throws Exception;
+	//public Exam startExam(int examId);
 	/*public Exam findResultByEnrollmentId(int enrollmentId);
 	List<Exam> findAllResultsByBatchName(String batchName);
 	boolean releaseResultByEnrollmentId(int enrollmentId); */

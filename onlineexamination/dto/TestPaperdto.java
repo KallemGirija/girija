@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TestPaperdto {
-	private int TestPaperCode;
+	private int testPaperId;
 	private String difficultyLevel;
 	private String description;
+	private String course;
 
 }

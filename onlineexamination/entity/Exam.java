@@ -25,24 +25,27 @@ import lombok.NoArgsConstructor;
 public class Exam {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int examRollNo;
+	private int examId;
 	private int dateOfExam;
-	private String status;
 	private int maximumScore;
 	private int actualScore;
-	private float examDuration;
 	private String difficultyLevel;
+	private String status;
 	
-	public Exam(int dateOfExam, String status, int maximumScore, int actualScore, float examDuration,
-			String difficultyLevel) {
+	/*@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "testPaperId") 
+	private List<TestPaper>  testPaper=new ArrayList<>();*/
+	
+	
+	public Exam(int dateOfExam,int maximumScore, int actualScore,
+			String difficultyLevel,String status) {
 		super();
 		
 		this.dateOfExam = dateOfExam;
-		this.status = status;
 		this.maximumScore = maximumScore;
 		this.actualScore = actualScore;
-		this.examDuration = examDuration;
 		this.difficultyLevel = difficultyLevel;
+		this.status = status;
 	}
 	
 	

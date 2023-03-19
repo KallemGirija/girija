@@ -29,7 +29,15 @@ public class ExamServiceImpl implements ExamService{
 		} else
 			throw new NullPointerException("exam is null");
 	}
+}
+
+	
+
+	/*@Override
+	public Exam startExam(int examId) {
+		
 	}
+	}*/
 	
 	/*@Override
 	public Exam findResultByEnrollmentId(int enrollmentId) throws ExamNotFoundException {
