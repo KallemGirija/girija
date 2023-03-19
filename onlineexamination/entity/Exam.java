@@ -29,7 +29,6 @@ public class Exam {
 	private int dateOfExam;
 	private int maximumScore;
 	private int actualScore;
-	private String difficultyLevel;
 	private String status;
 	
 	/*@OneToMany(cascade = CascadeType.ALL)
@@ -38,13 +37,12 @@ public class Exam {
 	
 	
 	public Exam(int dateOfExam,int maximumScore, int actualScore,
-			String difficultyLevel,String status) {
+			String status) {
 		super();
 		
 		this.dateOfExam = dateOfExam;
 		this.maximumScore = maximumScore;
 		this.actualScore = actualScore;
-		this.difficultyLevel = difficultyLevel;
 		this.status = status;
 	}
 	

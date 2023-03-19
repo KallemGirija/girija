@@ -13,7 +13,7 @@ public class Examdto {
 	private int dateOfExam;
 	private int maximumScore;
 	private int actualScore;
-	private String difficultyLevel;
 	private String status;
+	
 
 }

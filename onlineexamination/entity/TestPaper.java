@@ -28,21 +28,20 @@ public class TestPaper {
 	private String difficultyLevel;
 	private String description;
 	private String course;
+	private int noOfQuestions;
 	
        
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "testPaperId") 
-	 
+	private List<TestQuestion>  testQuestion;
 	
-	
-	private List<TestQuestion>  testQuestion=new ArrayList<>();
-	
-	public TestPaper(String difficultyLevel, String description,String course) {
+	public TestPaper(String difficultyLevel, String description,String course,int noOfQuestions) {
 		super();
 		
 		this.difficultyLevel = difficultyLevel;
 		this.description = description;
 		this.course = course;
+		this.noOfQuestions = noOfQuestions;
 	}
 
 }

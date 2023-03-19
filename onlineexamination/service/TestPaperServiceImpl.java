@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.onlineexamination.entity.Exam;
 import com.cg.onlineexamination.entity.TestPaper;
+import com.cg.onlineexamination.entity.TestQuestion;
 import com.cg.onlineexamination.repository.ExamRepository;
 import com.cg.onlineexamination.repository.TestPaperRepository;
 import com.cg.onlineexamination.repository.TestQuestionRepository;
@@ -53,6 +54,21 @@ public class TestPaperServiceImpl implements TestPaperService{
 		}
 		return allTestPaperByCourse;
 	}
+
+	@Override
+	public int getNoOfQuestionsByTestPaperId(int testPaperId) {
+		TestPaper testpaperfromDB = testPaperRepository.getReferenceById(testPaperId);
+		if (testpaperfromDB != null) {
+			return testpaperfromDB.getNoOfQuestions();
+			
+		}
+		else {
+				
+		return 0;
+	}
+	}
+
+	
 }
 
 	/*@Override

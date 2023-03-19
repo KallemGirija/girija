@@ -84,6 +84,14 @@ public class TestPaperController {
 		return new ResponseEntity<List<TestPaperdto>>(dtoObj, HttpStatus.OK);
 	}
 	
+	
+	@GetMapping("/{testPaperId}")
+	public int getNoOfQuestionsByTestPaperId(@PathVariable int testPaperId) {
+		int NoOfQuestions = testPaperService.getNoOfQuestionsByTestPaperId(testPaperId);
+		return NoOfQuestions;
+		
+	}
+	
 }
 
 

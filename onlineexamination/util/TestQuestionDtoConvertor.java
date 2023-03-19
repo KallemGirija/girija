@@ -13,7 +13,7 @@ public class TestQuestionDtoConvertor {
 	
 	public TestQuestiondto getTestQuestiondto(TestQuestion tq)
 	{ 
-		return new TestQuestiondto(tq.getQuestionId(),tq.getQuestion(),tq.getOption1(),tq.getOption2(),tq.getOption3(),tq.getOption4(),tq.getCorrectAnswer());
+		return new TestQuestiondto(tq.getQuestionId(),tq.getQuestion(),tq.getOption1(),tq.getOption2(),tq.getOption3(),tq.getOption4());
 
 	
 }

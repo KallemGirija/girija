@@ -9,7 +9,7 @@ public class ExamDtoConvertor {
 	
 	public Examdto getExamdto(Exam e)
 	{ 
-		return new Examdto(e.getExamId(),e.getDateOfExam(),e.getMaximumScore(),e.getActualScore(),e.getDifficultyLevel(),e.getStatus());
+		return new Examdto(e.getExamId(),e.getDateOfExam(),e.getMaximumScore(),e.getActualScore(),e.getStatus());
 	    
 		
 	}

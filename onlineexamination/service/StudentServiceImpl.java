@@ -1,10 +1,12 @@
 package com.cg.onlineexamination.service;
 
 import java.io.InvalidClassException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cg.onlineexamination.entity.Student;
+import com.cg.onlineexamination.entity.TestQuestion;
 import com.cg.onlineexamination.repository.StudentRepository;
 
 @Service
@@ -24,6 +26,15 @@ public class StudentServiceImpl implements StudentService {
 			} else
 				throw new NullPointerException("student is null");
 		}
-		}
+
+	
+
+	@Override
+	public List<Student> getAllStudents() {
+		return studentRepository.findAll();
+	}
+
+	
+}
 
 

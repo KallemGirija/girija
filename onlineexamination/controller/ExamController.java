@@ -1,17 +1,23 @@
 package com.cg.onlineexamination.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.onlineexamination.dto.Examdto;
+import com.cg.onlineexamination.dto.Studentdto;
 import com.cg.onlineexamination.entity.Exam;
+import com.cg.onlineexamination.entity.Student;
 import com.cg.onlineexamination.service.ExamService;
 import com.cg.onlineexamination.util.ExamDtoConvertor;
 
@@ -44,6 +50,21 @@ public class ExamController {
 
 		}
 		return null;
+	}
+	
+	@GetMapping("/list")
+	public ResponseEntity<List<Examdto>> getAllExams()
+	{
+		List<Exam> allExamsInDB = examService.getAllExams();
+
+		List<Examdto> dtoList = new ArrayList<>();
+		for (Exam exam : allExamsInDB) {
+
+			Examdto dtoObj = examDtoConvertor.getExamdto(exam);
+			dtoList.add(dtoObj);
+		}
+
+		return new ResponseEntity<List<Examdto>>(dtoList,HttpStatus.OK);
 	}
 			
 }

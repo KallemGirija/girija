@@ -12,5 +12,6 @@ public class TestPaperdto {
 	private String difficultyLevel;
 	private String description;
 	private String course;
+	private int noOfQuestions;
 
 }

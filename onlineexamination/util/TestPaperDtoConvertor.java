@@ -10,7 +10,7 @@ public class TestPaperDtoConvertor {
 
 	public TestPaperdto getTestPaperdto(TestPaper t)
 	{ 
-		return new TestPaperdto(t.getTestPaperId(),t.getDifficultyLevel(),t.getDescription(),t.getCourse());
+		return new TestPaperdto(t.getTestPaperId(),t.getDifficultyLevel(),t.getDescription(),t.getCourse(),t.getNoOfQuestions());
 	    
 		
 	}

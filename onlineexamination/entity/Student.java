@@ -24,6 +24,7 @@ public class Student {
 	private String gender;
 	private String emailId;
 	private long mobileNo;
+	private int score;
 	
 	public Student(String userName, int password, String firstName, String lastName, String gender,
 			String emailId, long mobileNo) {

@@ -21,13 +21,18 @@ public class ExamServiceImpl implements ExamService{
 	@Override
 	public Exam addExam(Exam exam) throws Exception {
 		if (exam != null) {
-			if (exam.getDifficultyLevel().equals("")) {
+			if (exam.getStatus().equals("")) {
 				throw new InvalidClassException("exam", "exam is null");
 			}
 			Exam savedExam = examRepository.save(exam);
 			return savedExam;
 		} else
 			throw new NullPointerException("exam is null");
+	}
+
+	@Override
+	public List<Exam> getAllExams() {
+		return examRepository.findAll();
 	}
 }
 
