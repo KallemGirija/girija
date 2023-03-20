@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,9 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.onlineexamination.dto.Examdto;
 import com.cg.onlineexamination.dto.Studentdto;
 import com.cg.onlineexamination.dto.TestPaperdto;
+import com.cg.onlineexamination.dto.TestQuestiondto;
 import com.cg.onlineexamination.entity.Exam;
 import com.cg.onlineexamination.entity.Student;
 import com.cg.onlineexamination.entity.TestPaper;
+import com.cg.onlineexamination.entity.TestQuestion;
 import com.cg.onlineexamination.service.ExamService;
 import com.cg.onlineexamination.service.StudentService;
 import com.cg.onlineexamination.util.ExamDtoConvertor;
@@ -69,6 +73,29 @@ public class StudentController {
 
 		return new ResponseEntity<List<Studentdto>>(dtoList,HttpStatus.OK);
 	}
+	
+	@GetMapping("/{studentid}")
+	public ResponseEntity<Studentdto> getStudentById(@PathVariable int studentid) throws Exception {
+
+		Student savedStudent = studentService.viewStudentById(studentid);
+		Studentdto studentdto = studentDtoConvertor.getStudentdto(savedStudent);
+		return new ResponseEntity<Studentdto>(studentdto, HttpStatus.OK);
+
+	}
+	
+	
+	/*@PutMapping("/{studentid}/exam/{eid}")
+	public ResponseEntity<Studentdto> updateExamByStudentId(@PathVariable int studentid, @PathVariable int eid) throws Exception {
+		
+		Student updatedStudent = studentService.updateExamByStudent(eid, studentid);
+		if(updatedStudent != null) {
+			Studentdto studentdto = studentDtoConvertor.getStudentdto(updatedStudent);
+			return new ResponseEntity<Studentdto>(studentdto,HttpStatus.OK);
+		}
+		return null;
+	}*/
+	
+	
 	
 			
 }

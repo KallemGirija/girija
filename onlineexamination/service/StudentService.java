@@ -13,6 +13,8 @@ public interface StudentService {
 	
 	public Student addStudent(Student student)throws Exception;
 	public List<Student>getAllStudents();
+	public Student viewStudentById(int id)throws Exception;
+	//public Student updateExamByStudent(int examId ,int studentId)throws Exception;
 	
 	
 	

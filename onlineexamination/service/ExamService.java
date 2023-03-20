@@ -4,6 +4,8 @@ import java.util.List;
 
 
 import org.springframework.stereotype.Service;
+
+import com.cg.onlineexamination.dto.Examdto;
 import com.cg.onlineexamination.entity.Exam;
 import com.cg.onlineexamination.entity.Student;
 
@@ -15,6 +17,7 @@ public interface ExamService  {
 	public Exam getExambyId(int Id)throws Exception;
 	public List<Exam>getAllExams();
 	public Exam updateTestPaper(int examId , int testPaperId);
+	
 	
 	
 	//public Exam startExam(int examId);

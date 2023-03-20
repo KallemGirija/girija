@@ -1,9 +1,14 @@
 package com.cg.onlineexamination.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +30,8 @@ public class Student {
 	private String emailId;
 	private long mobileNo;
 	private int score;
+	
+	
 	
 	public Student(String userName, int password, String firstName, String lastName, String gender,
 			String emailId, long mobileNo) {

@@ -15,5 +15,5 @@ public interface TestQuestionService {
 	public List<TestQuestion>viewAllTestQuestions();
 	public TestQuestion viewTestQuestionById(int id)throws Exception;
 	public TestQuestion updateTestPaperByTestQuestion(int testPaperId ,int testQuestionId)throws Exception;
-	
+	public List<TestQuestion> getAllQuestionsByTestPaperId(int testPaperId);
 }

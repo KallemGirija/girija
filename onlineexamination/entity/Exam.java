@@ -35,7 +35,13 @@ public class Exam {
 	private LocalDate dateOfExam;
 	
 	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "testPaperId")
 	private TestPaper testPaper;
+	
+	
+	/*@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "studentId") 
+	private List<Student>  student;*/
 	
 	/*@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "studentId")

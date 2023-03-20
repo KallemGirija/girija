@@ -9,8 +9,7 @@ import com.cg.onlineexamination.entity.TestPaper;
 @Repository
 public interface TestPaperRepository extends JpaRepository<TestPaper,Integer>{
 
-	TestPaper updateExamByTestPaper(TestPaper savedTestPaper, Exam savedExam);
-
+	
 	
 	
 	

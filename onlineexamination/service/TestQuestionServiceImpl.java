@@ -104,10 +104,22 @@ public class TestQuestionServiceImpl implements TestQuestionService{
 		return testQuestionRepository.findAll();
 	}
 
-	
-	
-	
+
+
+
+
+	@Override
+	public List<TestQuestion> getAllQuestionsByTestPaperId(int testPaperId) {
+		TestPaper testPaper = testPaperRepository.getReferenceById(testPaperId);
+		List<TestQuestion> allTestQuestions = testPaper.getTestQuestion();
+		return allTestQuestions;
+		}
 	}
+
+	
+	
+	
+	
 	
 	
 	

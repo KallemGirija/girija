@@ -10,7 +10,7 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.cg.onlineexamination.dto.Examdto;
 import com.cg.onlineexamination.entity.Exam;
 import com.cg.onlineexamination.entity.TestPaper;
 import com.cg.onlineexamination.exception.ExamNotFoundException;
@@ -70,13 +70,14 @@ public class ExamServiceImpl implements ExamService{
 		
 		if(savedExam != null & savedTestPaper != null) 
 		{
-			Exam updatedExam = examRepository.updateTestpaper(savedExam, savedTestPaper);
-			examRepository.save(updatedExam);
-			return updatedExam;
+			savedExam.setTestPaper(savedTestPaper);
+			return savedExam;
 		}
 
 		return null;
 	}
+
+	
 }
 
 	

@@ -102,4 +102,16 @@ public class TestQuestionController {
 
 	}
 	
+	@GetMapping("/getAllQuestion/{testPaperId}")
+	public ResponseEntity<List<TestQuestiondto>> getAllQuestionByTestPaperId(@PathVariable int testPaperId){
+		List<TestQuestion> allQuestions = testQuestionService.getAllQuestionsByTestPaperId(testPaperId);
+		List<TestQuestiondto> dtoObj= new ArrayList<>();
+		for (TestQuestion testQuestion : allQuestions) {
+			TestQuestiondto testQuestionDto = testQuestionDtoConvertor.getTestQuestiondto(testQuestion);
+			dtoObj.add(testQuestionDto);
+			}
+		return new ResponseEntity<List<TestQuestiondto>>(dtoObj, HttpStatus.OK);
+		}
+	
+	
 }
