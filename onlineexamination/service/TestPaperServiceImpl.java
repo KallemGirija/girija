@@ -23,6 +23,8 @@ public class TestPaperServiceImpl implements TestPaperService{
 	@Autowired
 	TestQuestionRepository testQuestionRepository;
 	
+	
+	
 
 	@Override
 	public TestPaper addTestPaper(TestPaper t) throws Exception {
@@ -69,21 +71,12 @@ public class TestPaperServiceImpl implements TestPaperService{
 	}
 
 	
+
+	
+
+	
 }
 
-	/*@Override
-	public TestPaper updateExam(int testPaperId, int examId) {
-		TestPaper savedTestPaper = testPaperRepository.getReferenceById(testPaperId);
-		Exam savedExam = examRepository.getReferenceById(examId);
-
-		if(savedTestPaper != null & savedExam != null) 
-		{
-			TestPaper updatedTestPaper = testPaperRepository.updateExamByTestPaper(savedTestPaper, savedExam);
-			testPaperRepository.save(updatedTestPaper);
-			return updatedTestPaper;
-		}
-		else return null;
-	}
-	}*/
+	
 
 

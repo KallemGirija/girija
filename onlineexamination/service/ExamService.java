@@ -12,7 +12,10 @@ public interface ExamService  {
 	
 	
 	public Exam addExam(Exam exam)throws Exception;
+	public Exam getExambyId(int Id)throws Exception;
 	public List<Exam>getAllExams();
+	public Exam updateTestPaper(int examId , int testPaperId);
+	
 	
 	//public Exam startExam(int examId);
 	/*public Exam findResultByEnrollmentId(int enrollmentId);

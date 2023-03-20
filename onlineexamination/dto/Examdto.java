@@ -1,5 +1,6 @@
 package com.cg.onlineexamination.dto;
 
+import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,10 +11,9 @@ import lombok.NoArgsConstructor;
 public class Examdto {
 	
 	private int examId;
-	private int dateOfExam;
-	private int maximumScore;
-	private int actualScore;
-	private String status;
+	private int score;
+	private LocalDate dateOfExam;
+	
 	
 
 }

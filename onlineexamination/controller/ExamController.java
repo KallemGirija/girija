@@ -10,14 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.onlineexamination.dto.Examdto;
 import com.cg.onlineexamination.dto.Studentdto;
+import com.cg.onlineexamination.dto.TestQuestiondto;
 import com.cg.onlineexamination.entity.Exam;
 import com.cg.onlineexamination.entity.Student;
+import com.cg.onlineexamination.entity.TestQuestion;
 import com.cg.onlineexamination.service.ExamService;
 import com.cg.onlineexamination.util.ExamDtoConvertor;
 
@@ -65,6 +69,28 @@ public class ExamController {
 		}
 
 		return new ResponseEntity<List<Examdto>>(dtoList,HttpStatus.OK);
+	}
+	
+	@GetMapping("/{examid}")
+	public ResponseEntity<Examdto> getExamById(@PathVariable int examid) throws Exception {
+	
+		Exam savedExam = examService.getExambyId(examid);
+		Examdto examdto = examDtoConvertor.getExamdto(savedExam);
+		return new ResponseEntity<Examdto>(examdto, HttpStatus.OK);
+
+	}
+	
+	
+	@PutMapping("/{eid}/testPaper/{tpid}")
+	public String updateExamWithTestPaper(@PathVariable int eid,@PathVariable int tpid)
+	{
+		Exam updatedExam = examService.updateTestPaper(eid, tpid);
+
+		if(updatedExam.getTestPaper() != null)
+		{
+			return updatedExam.toString();
+		}
+		else return "error : - "+updatedExam.toString()+" ";
 	}
 			
 }
