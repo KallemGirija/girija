@@ -114,6 +114,19 @@ public class TestQuestionServiceImpl implements TestQuestionService{
 		List<TestQuestion> allTestQuestions = testPaper.getTestQuestion();
 		return allTestQuestions;
 		}
+
+
+
+
+
+	@Override
+	public boolean removeTestQuestion(int testQuestionId) {
+		// TODO Auto-generated method stub
+		
+		testQuestionRepository.deleteById(testQuestionId);
+		return true;
+		
+	}
 	}
 
 	

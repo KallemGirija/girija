@@ -29,7 +29,7 @@ public class Student {
 	private String gender;
 	private String emailId;
 	private long mobileNo;
-	private int score;
+	//private int score;
 	
 	
 	

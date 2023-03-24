@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.cg.onlineexamination.dto.Examdto;
 import com.cg.onlineexamination.entity.Exam;
 import com.cg.onlineexamination.entity.TestPaper;
+import com.cg.onlineexamination.entity.TestQuestion;
 import com.cg.onlineexamination.exception.ExamNotFoundException;
 import com.cg.onlineexamination.repository.ExamRepository;
 import com.cg.onlineexamination.repository.TestPaperRepository;
@@ -76,8 +77,41 @@ public class ExamServiceImpl implements ExamService{
 
 		return null;
 	}
+	
+	@Override
+	public Exam updateStudentAnswer(int examId, Examdto examdto) throws ExamNotFoundException {
+		Exam exam = examRepository.getReferenceById(examId);
+		if(exam==null){
+
+		throw new ExamNotFoundException("Exam not found");
+		}
+		exam.setStudentAnswer(examdto.getStudentAnswer());
+		exam.setScore(evaluateScore(exam.getTestPaper().getTestQuestion(), examdto.getStudentAnswer()));
+
+		Exam e = examRepository.save(exam);
+
+		return e;
+	}
+	
+	
+	
+
+	@Override
+	public int evaluateScore(List<TestQuestion> testQuestion, List<String> studentAnswers) {
+		int score = 0;
+		int i=0;
+		for (TestQuestion tq1 : testQuestion) {
+
+		if(	tq1.getCorrectAnswer().equals(studentAnswers.get(i))){
+			score++;
+		}
+
+		}
+
+		return score;
 
 	
+}
 }
 
 	

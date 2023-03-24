@@ -11,10 +11,12 @@ public class ExamDtoConvertor {
 	
 	public Examdto getExamdto(Exam e)
 	{
-		return new Examdto(e.getExamId(),e.getScore(),e.getDateOfExam());
+		return new Examdto(e.getExamId(),e.getScore(),e.getDateOfExam(),e.getStudentAnswer());
 	}
 	
-	
+	public Exam getExam(Exam e) {
+		return new Exam(e.getDateOfExam());
+	}
 	
 	
 }

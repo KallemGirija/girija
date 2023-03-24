@@ -12,6 +12,7 @@ import com.cg.onlineexamination.entity.TestQuestion;
 public interface TestQuestionService {
 	
 	public TestQuestion addTestQuestion(TestQuestion TestQuestion)throws Exception;
+	public boolean removeTestQuestion(int testQuestionId);
 	public List<TestQuestion>viewAllTestQuestions();
 	public TestQuestion viewTestQuestionById(int id)throws Exception;
 	public TestQuestion updateTestPaperByTestQuestion(int testPaperId ,int testQuestionId)throws Exception;

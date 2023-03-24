@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,11 +23,13 @@ import com.cg.onlineexamination.dto.TestQuestiondto;
 import com.cg.onlineexamination.entity.Exam;
 import com.cg.onlineexamination.entity.Student;
 import com.cg.onlineexamination.entity.TestQuestion;
+import com.cg.onlineexamination.exception.ExamNotFoundException;
 import com.cg.onlineexamination.service.ExamService;
 import com.cg.onlineexamination.util.ExamDtoConvertor;
 
 @RestController
 @RequestMapping("/exam")
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:2004"},allowedHeaders="*")
 public class ExamController {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -92,6 +95,17 @@ public class ExamController {
 		}
 		else return "error : - "+updatedExam.toString()+" ";
 	}
-			
+	
+	@PutMapping("/{eid}")
+	public String updateExamWithStudentAnswer(@PathVariable int eid, @RequestBody Examdto examdto) throws ExamNotFoundException
+	{
+		System.out.println("Inside updateExamWithStudentAnswer Method");
+
+		Exam updatedExam = examService.updateStudentAnswer(eid, examdto);
+
+		return updatedExam.toString();
+}
+	
+	
 }
 

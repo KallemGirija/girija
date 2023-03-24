@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +35,7 @@ import com.cg.onlineexamination.util.TestQuestionDtoConvertor;
 
 @RestController
 @RequestMapping("/testQuestion")
+//@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:2004"},allowedHeaders="*")
 public class TestQuestionController {
 	
 	private static final TestQuestiondto savedTestQuestion = null;
@@ -113,5 +116,10 @@ public class TestQuestionController {
 		return new ResponseEntity<List<TestQuestiondto>>(dtoObj, HttpStatus.OK);
 		}
 	
+	@DeleteMapping("/remove/{testQuestionId}")
+	public ResponseEntity<Boolean> deleteTestQuestion(@PathVariable int testQuestionId) {
+		boolean status = testQuestionService.removeTestQuestion(testQuestionId);
+		return new ResponseEntity<Boolean>(status, HttpStatus.OK);
+	}
 	
 }

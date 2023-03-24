@@ -37,6 +37,8 @@ public class Exam {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "testPaperId")
 	private TestPaper testPaper;
+	private ArrayList<String> studentAnswer;
+	
 	
 	
 	/*@OneToMany(cascade = CascadeType.ALL)
@@ -47,13 +49,17 @@ public class Exam {
 	@JoinColumn(name = "studentId")
 	private Student s;*/
 
-
-	public Exam(int score, LocalDate dateOfExam ) {
+	public Exam(LocalDate dateOfExam, ArrayList<String> studentAnswer) {
 		super();
-		this.score = score;
 		this.dateOfExam = dateOfExam;
-		
+		this.studentAnswer = studentAnswer;
 	}
+	
+	public Exam(LocalDate dateOfExam) {
+		super();
+		this.dateOfExam = dateOfExam;
+	}
+	
 
 
 	

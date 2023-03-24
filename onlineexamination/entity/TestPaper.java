@@ -32,7 +32,7 @@ public class TestPaper {
 	
        
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "testPaperId") 
+	@JoinColumn(name = "testPaperId")
 	private List<TestQuestion>  testQuestion;
 	
 	public TestPaper(String difficultyLevel, String description,String course,int noOfQuestions) {
